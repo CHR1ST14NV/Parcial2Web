@@ -10,21 +10,21 @@
     <div class="form-grid">
       <label>
         Nombre
-        <input type="text" name="nombre" placeholder="text" required value="<%= values.nombre %>">
+        <input type="text" name="nombre" placeholder="Ingresa tu nombre" required value="<%= values.nombre %>">
         <% if (errors.nombre) { %>
           <span class="error"><%= errors.nombre %></span>
         <% } %>
       </label>
       <label>
         Apellido
-        <input type="text" name="apellido" placeholder="text" required value="<%= values.apellido %>">
+        <input type="text" name="apellido" placeholder="Ingresa tu apellido" required value="<%= values.apellido %>">
         <% if (errors.apellido) { %>
           <span class="error"><%= errors.apellido %></span>
         <% } %>
       </label>
       <label>
         DPI
-        <input type="text" name="dpi" placeholder="text" value="<%= values.dpi %>" pattern="[0-9]{4}[- ]?[0-9]{5}[- ]?[0-9]{4}">
+        <input type="text" name="dpi" placeholder="Ingresa tu DPI" value="<%= values.dpi %>" pattern="[0-9]{4}[- ]?[0-9]{5}[- ]?[0-9]{4}">
         <% if (errors.dpi) { %>
           <span class="error"><%= errors.dpi %></span>
         <% } %>
@@ -39,8 +39,8 @@
       <label>
         Sexo
         <select name="sexo" required>
-          <option value="M" <%= values.sexo === "M" ? "selected" : "" %>>M</option>
-          <option value="F" <%= values.sexo === "F" ? "selected" : "" %>>F</option>
+          <option value="M" <%= values.sexo === "M" ? "selected" : "" %>>Masculino</option>
+          <option value="F" <%= values.sexo === "F" ? "selected" : "" %>>Femenino</option>
           <option value="O" <%= values.sexo === "O" ? "selected" : "" %>>Otro</option>
         </select>
         <% if (errors.sexo) { %>
@@ -52,14 +52,14 @@
   <div class="credentials">
     <label>
       Usuario
-      <input type="text" name="usuario" placeholder="usuario" required value="<%= values.usuario %>">
+      <input type="text" name="usuario" placeholder="Crea tu usuario" required value="<%= values.usuario %>">
       <% if (errors.usuario) { %>
         <span class="error"><%= errors.usuario %></span>
       <% } %>
     </label>
     <label>
-      Contraseña
-      <input type="password" name="contrasena" placeholder="Contraseña" required>
+      Contrase&#241;a
+      <input type="password" name="contrasena" placeholder="Crea una contrase&#241;a segura" required>
       <% if (errors.contrasena) { %>
         <span class="error"><%= errors.contrasena %></span>
       <% } %>

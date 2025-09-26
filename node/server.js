@@ -56,7 +56,7 @@ app.post("/registro", (req, res) => {
 
   const password = (req.body.contrasena || "").toString();
   if (!password) {
-    errors.contrasena = "La contraseña es obligatoria";
+    errors.contrasena = "La contrase\u00f1a es obligatoria";
   }
 
   if (fields.dpi && !/^[0-9]{4}[- ]?[0-9]{5}[- ]?[0-9]{4}$/.test(fields.dpi)) {
@@ -87,3 +87,4 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+

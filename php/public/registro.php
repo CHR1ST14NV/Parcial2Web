@@ -14,7 +14,7 @@ $fields = [
 ];
 
 $input = filter_input_array(INPUT_POST, $fields) ?: [];
-$input = array_map(function ($value) {
+$input = array_map(static function ($value) {
     return $value ?? '';
 }, $input);
 
@@ -29,76 +29,6 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DesaWeb | Registro Exitoso</title>
     <link rel="stylesheet" href="assets/style.css">
-    <style>
-        .success-banner {
-            margin-bottom: 1.75rem;
-            padding: 1.25rem;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(76, 132, 241, 0.15), rgba(47, 110, 216, 0.05));
-            border: 1px solid rgba(47, 110, 216, 0.25);
-            text-align: center;
-        }
-
-        .details-card {
-            border: 1px solid #d1d9e6;
-            border-radius: 14px;
-            padding: 1.5rem 2rem;
-            background: #ffffff;
-            box-shadow: 0 12px 28px rgba(31, 42, 68, 0.12);
-        }
-
-        .details-card h2 {
-            margin-top: 0;
-            margin-bottom: 1.25rem;
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .details-grid {
-            display: grid;
-            gap: 1.1rem 1.5rem;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        }
-
-        .details-grid dt {
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 0.06em;
-            opacity: 0.75;
-            text-transform: uppercase;
-        }
-
-        .details-grid dd {
-            margin: 0.25rem 0 0;
-            font-size: 1rem;
-            color: #2f3a55;
-        }
-
-        .actions {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .actions a {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            background: #fff;
-            color: #2f6ed8;
-            border: 1px solid #2f6ed8;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-        }
-
-        .actions a:hover {
-            background: #2f6ed8;
-            color: #fff;
-            transform: translateY(-1px);
-        }
-    </style>
 </head>
 <body>
     <div class="main-wrapper">
@@ -112,7 +42,7 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
             <h1>Registro Completado</h1>
             <div class="success-banner">
                 Bienvenido, <strong><?php echo $input['nombre'] . ' ' . $input['apellido']; ?></strong>.<br>
-                Tu cuenta ha sido registrada exitosamente.
+                Tu perfil se cre&#243; con estilo.
             </div>
             <div class="details-card">
                 <h2>Datos Registrados</h2>
@@ -142,7 +72,7 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
                         <dd><?php echo $input['usuario']; ?></dd>
                     </div>
                     <div>
-                        <dt>Contraseña (protegida)</dt>
+                        <dt>Contrase&#241;a (protegida)</dt>
                         <dd><?php echo $maskedPassword; ?></dd>
                     </div>
                 </dl>
@@ -152,5 +82,8 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
             </div>
         </div>
     </div>
+    <div class="watermark">Hecho por Christian Velasquez 090-22-7443</div>
 </body>
 </html>
+
+
