@@ -1,0 +1,30 @@
+﻿services:
+  php:
+    image: parcial:php-1
+    build:
+      context: .
+      target: parcial_php
+    ports:
+      - "8080:80"
+    environment:
+      - TZ=America/Guatemala
+    restart: unless-stopped
+
+  node:
+    image: parcial:js-1
+    build:
+      context: .
+      target: parcial_js
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=America/Guatemala
+      - NODE_ENV=production
+    depends_on:
+      - php
+    restart: unless-stopped
+
+networks:
+  default:
+    name: parcial-registry
+

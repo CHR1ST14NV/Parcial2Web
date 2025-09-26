@@ -1,0 +1,23 @@
+﻿services:
+  php:
+    build:
+      target: parcial_php
+    volumes:
+      - ./php/public:/var/www/html
+    environment:
+      - TZ=America/Guatemala
+
+  node:
+    build:
+      target: node_dev
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./node/server.js:/srv/app/server.js
+      - ./node/views:/srv/app/views
+      - ./node/public:/srv/app/public
+      - ./node/package.json:/srv/app/package.json:ro
+

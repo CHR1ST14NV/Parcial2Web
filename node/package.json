@@ -1,0 +1,23 @@
+﻿{
+  "name": "parcial-node-form",
+  "version": "1.0.0",
+  "description": "Formulario de registro inspirado en DesaWeb implementado con Node.js y Express",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Codex",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
+
