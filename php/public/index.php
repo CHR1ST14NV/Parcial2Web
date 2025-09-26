@@ -14,23 +14,19 @@ $defaults = [
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesaWeb | Registro</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div class="main-wrapper">
-        <div class="browser-bar">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <div class="browser-url">www.DesaWeb.com</div>
-        </div>
         <div class="form-card">
-            <h1>Formulario de Registro</h1>
+            <div class="form-card__header">
+                <span class="form-card__badge">Registro oficial</span>
+                <h1>Formulario de Registro</h1>
+            </div>
             <form action="registro.php" method="POST" novalidate>
                 <fieldset>
                     <legend>Datos Generales</legend>
-                    <div class="data-panel-hint">Panel para<br>Datos Generales</div>
                     <div class="form-grid">
                         <label>
                             Nombre
@@ -42,7 +38,7 @@ $defaults = [
                         </label>
                         <label>
                             DPI
-                            <input type="text" name="dpi" placeholder="Ingresa tu DPI" pattern="[0-9]{4}[- ]?[0-9]{5}[- ]?[0-9]{4}" value="<?php echo htmlspecialchars($defaults['dpi']); ?>">
+                            <input type="text" name="dpi" placeholder="Ingresa tu DPI guatemalteco" required pattern="[0-9]{13}" minlength="13" maxlength="13" inputmode="numeric" title="Ingresa 13 digitos sin espacios ni guiones" value="<?php echo htmlspecialchars($defaults['dpi']); ?>">
                         </label>
                         <label>
                             Fecha de Nacimiento
@@ -75,6 +71,3 @@ $defaults = [
     <div class="watermark">Hecho por Christian Velasquez 090-22-7443</div>
 </body>
 </html>
-
-
-

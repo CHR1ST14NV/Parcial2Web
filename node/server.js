@@ -59,8 +59,10 @@ app.post("/registro", (req, res) => {
     errors.contrasena = "La contrase\u00f1a es obligatoria";
   }
 
-  if (fields.dpi && !/^[0-9]{4}[- ]?[0-9]{5}[- ]?[0-9]{4}$/.test(fields.dpi)) {
-    errors.dpi = "DPI no tiene el formato esperado";
+  const dpiRegex = /^\d{13}$/;
+  const dpiValido = dpiRegex.test(fields.dpi);
+  if (!dpiValido) {
+    errors.dpi = "El DPI debe contener 13 digitos";
   }
 
   if (Object.keys(errors).length > 0) {
@@ -76,7 +78,8 @@ app.post("/registro", (req, res) => {
 
   res.render("registro", {
     values: fields,
-    maskedPassword: maskPassword
+    maskedPassword: maskPassword,
+    dpiValido
   });
 });
 
@@ -87,4 +90,3 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-

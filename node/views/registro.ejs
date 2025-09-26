@@ -1,48 +1,65 @@
 ﻿<%- include("partials/head", {
-  title: "DesaWeb | Registro Exitoso",
-  url: "www.DesaWeb.com/registro",
-  heading: "Registro Completado"
+  title: "Registro",
+  heading: "Bienvenido a la comunidad",
+  badge: "Registro completado"
 }) %>
-<div class="success-banner">
-  Bienvenido, <strong><%= values.nombre %> <%= values.apellido %></strong>.<br>
-  Tu perfil se cre&#243; con estilo.
-</div>
-<div class="details-card">
-  <h2>Datos Registrados</h2>
-  <dl class="details-grid">
-    <div>
-      <dt>Nombre</dt>
-      <dd><%= values.nombre %></dd>
-    </div>
-    <div>
-      <dt>Apellido</dt>
-      <dd><%= values.apellido %></dd>
-    </div>
-    <div>
-      <dt>DPI</dt>
-      <dd><%= values.dpi %></dd>
-    </div>
-    <div>
-      <dt>Fecha de Nacimiento</dt>
-      <dd><%= values.nacimiento %></dd>
-    </div>
-    <div>
-      <dt>Sexo</dt>
-      <dd><%= values.sexo %></dd>
-    </div>
-    <div>
-      <dt>Usuario</dt>
-      <dd><%= values.usuario %></dd>
-    </div>
-    <div>
-      <dt>Contrase&#241;a (protegida)</dt>
-      <dd><%= maskedPassword %></dd>
-    </div>
-  </dl>
-</div>
-<div class="actions">
-  <a href="/">Registrar nuevo usuario</a>
-</div>
-<%- include("partials/footer") %>
-
-
+    <% if (dpiValido) { %>
+        <div class="success-banner">
+            Bienvenido, <strong><%= values.nombre %> <%= values.apellido %></strong>.<br> Tu perfil se cre&#243; con estilo.
+        </div>
+        <div class="details-card">
+            <h2>Datos Registrados</h2>
+            <dl class="details-grid">
+                <div>
+                    <dt>Nombre</dt>
+                    <dd>
+                        <%= values.nombre %>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Apellido</dt>
+                    <dd>
+                        <%= values.apellido %>
+                    </dd>
+                </div>
+                <div>
+                    <dt>DPI</dt>
+                    <dd>
+                        <%= values.dpi %>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Fecha de Nacimiento</dt>
+                    <dd>
+                        <%= values.nacimiento %>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Sexo</dt>
+                    <dd>
+                        <%= values.sexo %>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Usuario</dt>
+                    <dd>
+                        <%= values.usuario %>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Contrase&#241;a (protegida)</dt>
+                    <dd>
+                        <%= maskedPassword %>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <% } else { %>
+            <div class="alert-banner">
+                El DPI ingresado debe contener exactamente 13 digitos (formato Guatemala). <a href="/">Regresar al formulario</a>
+            </div>
+            <% } %>
+                <div class="actions">
+                    <a href="/">Registrar nuevo usuario</a>
+                </div>
+                <%- include("partials/footer") %>

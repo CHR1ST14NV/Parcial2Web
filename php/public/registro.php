@@ -20,6 +20,8 @@ $input = array_map(static function ($value) {
 
 $contrasena = $_POST['contrasena'] ?? '';
 $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
+
+$esDpiValido = preg_match('/^[0-9]{13}$/', $input['dpi']) === 1;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,19 +29,17 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesaWeb | Registro Exitoso</title>
+    <title>Registro Exitoso</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <div class="main-wrapper">
-        <div class="browser-bar">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <div class="browser-url">www.DesaWeb.com/registro</div>
-        </div>
         <div class="form-card">
-            <h1>Registro Completado</h1>
+            <div class="form-card__header">
+                <span class="form-card__badge">Registro completado</span>
+                <h1>Bienvenido a la comunidad</h1>
+            </div>
+            <?php if ($esDpiValido): ?>
             <div class="success-banner">
                 Bienvenido, <strong><?php echo $input['nombre'] . ' ' . $input['apellido']; ?></strong>.<br>
                 Tu perfil se cre&#243; con estilo.
@@ -77,6 +77,11 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
                     </div>
                 </dl>
             </div>
+            <?php else: ?>
+            <div class="alert-banner">
+                El DPI ingresado debe contener exactamente 13 digitos (formato Guatemala). <a href="index.php">Regresar al formulario</a>
+            </div>
+            <?php endif; ?>
             <div class="actions">
                 <a href="index.php">Registrar nuevo usuario</a>
             </div>
@@ -85,5 +90,3 @@ $maskedPassword = str_repeat('*', max(strlen($contrasena), 8));
     <div class="watermark">Hecho por Christian Velasquez 090-22-7443</div>
 </body>
 </html>
-
-

@@ -6,12 +6,12 @@ Este proyecto entrega dos implementaciones del formulario de registro provisto: 
 
 ## Estructura
 
-- `php/public/` – Sitio PHP con `index.php`, `registro.php` y estilos.
-- `php/conf.d/` – Ajustes duros de PHP (opcache, timezone, limites).
-- `node/` – Aplicacion Express con plantillas EJS y middleware de seguridad.
-- `Dockerfile` – Define los targets `parcial_php`, `node_dev` y `parcial_js`.
-- `docker-compose.yml` – Orquesta ambos servicios listos para produccion.
-- `docker-compose.override.yml` – Perfil de desarrollo con recarga en caliente.
+- `php/public/` - Sitio PHP con `index.php`, `registro.php` y estilos.
+- `php/conf.d/` - Ajustes duros de PHP (opcache, timezone, limites).
+- `node/` - Aplicacion Express con plantillas EJS y middleware de seguridad.
+- `Dockerfile` - Define los targets `parcial_php`, `node_dev` y `parcial_js`.
+- `docker-compose.yml` - Orquesta ambos servicios listos para produccion.
+- `docker-compose.override.yml` - Perfil de desarrollo con recarga en caliente.
 
 ## Construccion de imagenes
 
@@ -59,12 +59,19 @@ docker compose -f docker-compose.yml -f docker-compose.override.yml up --build
 - Paleta neon suave con degradados y estados de foco accesibles.
 - Placeholders guiados en espanol para una experiencia mas amigable.
 
+## Reglas de validacion
+
+- El campo DPI obliga a 13 digitos continuos (formato Guatemala) en ambos backends.
+
 ## Validacion rapida
 
 1. Abrir `http://localhost:8080`, completar el formulario y enviar. Verifica que `registro.php` muestre los datos capturados y el mensaje de bienvenida.
 2. Abrir `http://localhost:3000` (o `3001` en modo dev), repetir el formulario. El backend Express valida campos, enmascara la contrasena y presenta el resumen.
 
 Ambos contenedores comparten red `parcial-registry`, lo que facilita futuras integraciones (por ejemplo, compartir una base de datos segura).
+
+
+
 
 
 

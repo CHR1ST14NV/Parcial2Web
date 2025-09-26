@@ -1,42 +1,41 @@
 ﻿<%- include("partials/head", {
-  title: "DesaWeb | Registro",
-  url: "www.DesaWeb.com",
-  heading: "Formulario de Registro"
+  title: "Registro",
+  heading: "Formulario de Registro",
+  badge: "Registro oficial"
 }) %>
-<form action="/registro" method="POST" novalidate>
-  <fieldset>
-    <legend>Datos Generales</legend>
-    <div class="data-panel-hint">Panel para<br>Datos Generales</div>
-    <div class="form-grid">
-      <label>
+    <form action="/registro" method="POST" novalidate>
+        <fieldset>
+            <legend>Datos Generales</legend>
+            <div class="form-grid">
+                <label>
         Nombre
         <input type="text" name="nombre" placeholder="Ingresa tu nombre" required value="<%= values.nombre %>">
         <% if (errors.nombre) { %>
           <span class="error"><%= errors.nombre %></span>
         <% } %>
       </label>
-      <label>
+                <label>
         Apellido
         <input type="text" name="apellido" placeholder="Ingresa tu apellido" required value="<%= values.apellido %>">
         <% if (errors.apellido) { %>
           <span class="error"><%= errors.apellido %></span>
         <% } %>
       </label>
-      <label>
+                <label>
         DPI
-        <input type="text" name="dpi" placeholder="Ingresa tu DPI" value="<%= values.dpi %>" pattern="[0-9]{4}[- ]?[0-9]{5}[- ]?[0-9]{4}">
+        <input type="text" name="dpi" placeholder="Ingresa tu DPI guatemalteco" required pattern="[0-9]{13}" minlength="13" maxlength="13" inputmode="numeric" title="Ingresa 13 digitos sin espacios ni guiones" value="<%= values.dpi %>">
         <% if (errors.dpi) { %>
           <span class="error"><%= errors.dpi %></span>
         <% } %>
       </label>
-      <label>
+                <label>
         Fecha de Nacimiento
         <input type="date" name="nacimiento" required value="<%= values.nacimiento %>">
         <% if (errors.nacimiento) { %>
           <span class="error"><%= errors.nacimiento %></span>
         <% } %>
       </label>
-      <label>
+                <label>
         Sexo
         <select name="sexo" required>
           <option value="M" <%= values.sexo === "M" ? "selected" : "" %>>Masculino</option>
@@ -47,25 +46,24 @@
           <span class="error"><%= errors.sexo %></span>
         <% } %>
       </label>
-    </div>
-  </fieldset>
-  <div class="credentials">
-    <label>
+            </div>
+        </fieldset>
+        <div class="credentials">
+            <label>
       Usuario
       <input type="text" name="usuario" placeholder="Crea tu usuario" required value="<%= values.usuario %>">
       <% if (errors.usuario) { %>
         <span class="error"><%= errors.usuario %></span>
       <% } %>
     </label>
-    <label>
+            <label>
       Contrase&#241;a
       <input type="password" name="contrasena" placeholder="Crea una contrase&#241;a segura" required>
       <% if (errors.contrasena) { %>
         <span class="error"><%= errors.contrasena %></span>
       <% } %>
     </label>
-  </div>
-  <button type="submit">Guardar</button>
-</form>
-<%- include("partials/footer") %>
-
+        </div>
+        <button type="submit">Guardar</button>
+    </form>
+    <%- include("partials/footer") %>

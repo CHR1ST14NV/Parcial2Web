@@ -1,11 +1,10 @@
 ﻿<%- include("partials/head", {
-  title: "DesaWeb | No Encontrado",
-  url: "www.DesaWeb.com/error",
-  heading: "P&#225;gina no encontrada"
+  title: "Registro",
+  heading: "P&#225;gina no encontrada",
+  badge: "Navegacion"
 }) %>
-<div class="error-page">
-  <p>La ruta <code><%= path %></code> no existe en este universo.</p>
-  <a class="error-link" href="/">Regresar al inicio</a>
-</div>
-<%- include("partials/footer") %>
-
+    <div class="error-page">
+        <p>La ruta <code><%= path %></code> no existe en este universo.</p>
+        <a class="error-link" href="/">Regresar al inicio</a>
+    </div>
+    <%- include("partials/footer") %>
